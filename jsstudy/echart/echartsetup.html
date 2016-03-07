@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script type="text/javascript" src="/libjs/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/libjs/jquery-2.2.1.js"></script>
+    <script type="text/javascript" src="/libjs/echarts-3.1.2.min.js"></script>
+
+
+
+    <style>
+        #resizable { width: 150px; height: 150px; padding: 0.5em; }
+        #resizable h3 { text-align: center; margin: 0; }
+    </style>
+
+</head>
+<body>
+
+<h1>Echar 3.0</h1>
+
+<input id="divW" type="text" value="800px"/>
+<input id="divH" type="text" value="600px"/>
+<input id="cbtn" type="button" value="OK"/>
+
+
+
+<div id="resizable" class="ui-widget-content">
+    <h3 class="ui-widget-header">Resizable</h3>
+</div>
+
+
+
+<script>
+    $(document).ready( function(){
+        $("#cbtn").click(function(){
+            //alert($("#divW").val() + "  " + $("#divH").val());
+
+            $("#main").css("width", $("#divW").val());
+            $("#main").css("height", $("#divH").val());
+
+            initChart();
+        });
+
+       // $("#draggable").draggable();
+        //$("#draggable").resizable();
+        $( "#resizable" ).resizable();
+
+      //  $("#main").css("width", "600px");
+       // $("#main").css("height", "400px");
+        console.log("fafa");
+    });
+
+    function  initChart(){
+        var myChart = echarts.init( $("#main")[0]);
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
+</body>
+</html>

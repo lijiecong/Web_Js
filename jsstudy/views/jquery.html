@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello jqueryx </h1>
+<a href="http://jquery.com/" style="color:red;font-size:30px">jQuery</a>
+
+<input type="checkbox" id="checkb" value="hello"/>
+
+<ul>
+    <li title="apple">苹果</li>
+    <li title="pear">梨</li>
+</ul>
+<br/>
+<script type="text/javascript"  src="/libjs/jquery-2.2.1.js"></script>
+
+<script>
+    $( document ).ready(function() {
+        console.log("Document is ready!");
+        $("#checkb").click(function (){
+            alert("check box clicked");
+        });
+
+
+        $("ul li:eq(1)").css("color", "red");
+
+        var $li1 = $("<li> </li>");
+        var $li2 = $("<li> </li>");
+
+        $("ul").append($li1);
+        $("ul").append($li2);
+
+        $li1.html("<strong>first li1</strong>");
+        $li2.html( $li1.html());
+
+    });
+</script>
+
+</body>
+</html>
